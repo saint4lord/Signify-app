@@ -11,7 +11,7 @@ Here's a detailed and professional text for your `README.md` file:
 In an increasingly digital world, accessibility is not just a feature—it's a necessity. Signify aims to bridge the gap between technology and inclusivity by offering an alternative control system that adapts to the unique needs of each individual. Whether it’s controlling applications with hand gestures or enabling facial recognition for those with limited mobility, Signify is committed to making technology universally accessible.
 
 ### Future Development Goals
-We envision a future where **Signify** evolves into a comprehensive tool that empowers users to:
+I envision a future where **Signify** evolves into a comprehensive tool that empowers users to:
 - **Navigate the Internet**: Seamlessly browse websites and access online services using simple gestures or facial movements.
 - **Control Applications**: Manage media playback, adjust system settings, and interact with desktop environments without traditional input devices.
 - **Promote Inclusivity**: Enable individuals with physical disabilities to become active participants in the digital community, fostering empowerment and independence.
