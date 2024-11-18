@@ -45,7 +45,7 @@ I envision a future where **Signify** evolves into a comprehensive tool that emp
 
 ## How to Contribute
 
-I welcome contributions from developers, designers, and accessibility advocates! Whether it's refining gesture recognition, adding new features, or improving user experience, your input will help us build a more accessible world.
+I welcome contributions from developers, designers, and accessibility advocates! Whether it's refining gesture recognition, adding new features, or improving user experience, your input will help me build a more accessible world.
 
 ### Get Started
 1. Fork the repository and clone it to your local machine.
@@ -55,6 +55,6 @@ I welcome contributions from developers, designers, and accessibility advocates!
 
 ---
 
-Together, let's make technology accessible to everyone. Join us on this journey to create a world where no one is left behind.
+Together, let's make technology accessible to everyone. Join me on this journey to create a world where no one is left behind.
 
 --- 
