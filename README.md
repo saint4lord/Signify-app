@@ -4,7 +4,7 @@ Here's a detailed and professional text for your `README.md` file:
 
 # Signify: A Gesture and Facial Recognition Control System
 
-**Signify** is an innovative project designed to revolutionize how people interact with computers. By leveraging the power of computer vision and artificial intelligence, Signify transforms hand gestures and, in the future, facial movements into intuitive control mechanisms. Our goal is to create a user-friendly, accessible, and inclusive solution that empowers individuals, particularly those with disabilities, to navigate and utilize technology seamlessly.
+**Signify** is an innovative project designed to revolutionize how people interact with computers. By leveraging the power of computer vision and artificial intelligence, Signify transforms hand gestures and, in the future, facial movements into intuitive control mechanisms. My goal is to create a user-friendly, accessible, and inclusive solution that empowers individuals, particularly those with disabilities, to navigate and utilize technology seamlessly.
 
 ## Vision and Mission
 
