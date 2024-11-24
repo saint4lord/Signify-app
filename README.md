@@ -1,6 +1,3 @@
-Here's a detailed and professional text for your `README.md` file:
-
----
 
 # Signify: A Gesture and Facial Recognition Control System
 
