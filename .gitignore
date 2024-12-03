@@ -1,0 +1,26 @@
+# venv
+env/
+# Файлы, созданные Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+
+# Логи
+*.log
+*.txt
+*.out
+*.err
+!requirements.txt
+
+# Файлы IDE
+.vscode/
+
+# Конфигурационные файлы
+*.env
+
+# Кэш и временные файлы
+.DS_Store
+Thumbs.db
+*.tmp
