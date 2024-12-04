@@ -3,7 +3,7 @@ import mediapipe as mp
 import pyautogui
 import time
 
-class HandRecognizer:
+class HandControl:
     def __init__(self, detection_confidence=0.7, tracking_confidence=0.5):
         self.mp_hands = mp.solutions.hands
         self.mp_drawing = mp.solutions.drawing_utils
@@ -120,3 +120,18 @@ class HandRecognizer:
             self.closed_fist_start_time = None
             self.mute_gesture_active = False 
             return "OTHER"
+
+if __name__ == "__main__":
+    cap = cv2.VideoCapture(0)
+    hand_control = HandControl()
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frame = hand_control.process_frame(frame)
+        cv2.imshow("Eye Control", frame)
+        if cv2.waitKey(1) & 0xFF == 27:  # Press ESC to exit
+            break
+    cap.release()
+    hand_control.release()
+    cv2.destroyAllWindows()
