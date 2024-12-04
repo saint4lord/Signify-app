@@ -2,7 +2,7 @@ import cv2
 import os
 from modules.hand_control import HandControl
 from core.interface import run_gui
-from modules.face_control import EyeControl  # Импортируем EyeControl для обработки Face mode
+from modules.face_control import EyeControl
 
 def hand_mode():
     """Hand control mode"""
