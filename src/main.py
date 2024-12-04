@@ -3,10 +3,7 @@ import subprocess
 from modules.hand_control import HandRecognizer
 
 def main():
-    # run ascii loading
-    subprocess.run(["python", "ascii_intro.py"])
-    
-    # camera's init
+#camera's init
     recognizer = HandRecognizer()
     cap = cv2.VideoCapture(0)
 
@@ -19,7 +16,7 @@ def main():
         
         cv2.imshow("Signify Gesture Recognition", frame)
 
-        # q for exit program
+# q for exit program
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
