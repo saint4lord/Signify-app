@@ -2,7 +2,6 @@ import cv2
 import os
 from modules.hand_control import HandControl
 from modules.face_control import EyeControl
-from ui.login_sreen import run_login_screen
 
 def hand_mode():
     """Hand control mode"""
@@ -48,4 +47,4 @@ def face_mode():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    run_login_screen()
+    pass
