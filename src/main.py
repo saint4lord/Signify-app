@@ -1,8 +1,8 @@
 import cv2
 import os
 from modules.hand_control import HandControl
-from core.interface import run_gui
-from modules.face_control import EyeControl  # Импортируем EyeControl для обработки Face mode
+from modules.face_control import EyeControl
+from ui.login_sreen import run_login_screen
 
 def hand_mode():
     """Hand control mode"""
@@ -48,12 +48,4 @@ def face_mode():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # Run GUI to choose mode
-    mode = run_gui()
-
-    if mode == "hands":
-        hand_mode()
-    elif mode == "face":
-        face_mode()
-    else:
-        print("Invalid mode selected.")
+    run_login_screen()
