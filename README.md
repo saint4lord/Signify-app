@@ -54,3 +54,4 @@ I welcome contributions from developers, designers, and accessibility advocates!
 Together, let's make technology accessible to everyone. Join me on this journey to create a world where no one is left behind.
 
 --- 
+## Just for everyone. - 601
