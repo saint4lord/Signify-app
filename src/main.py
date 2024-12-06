@@ -1,7 +1,6 @@
 import cv2
 import os
 from modules.hand_control import HandControl
-from core.interface import run_gui
 from modules.face_control import EyeControl
 
 def hand_mode():
@@ -48,12 +47,4 @@ def face_mode():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # Run GUI to choose mode
-    mode = run_gui()
-
-    if mode == "hands":
-        hand_mode()
-    elif mode == "face":
-        face_mode()
-    else:
-        print("Invalid mode selected.")
+    pass
