@@ -128,7 +128,7 @@ if __name__ == "__main__":
         ret, frame = cap.read()
         if not ret:
             break
-        frame = hand_control.process_frame(frame)
+        frame = hand_control.recognize_hands(frame)
         cv2.imshow("Eye Control", frame)
         if cv2.waitKey(1) & 0xFF == 27:  # Press ESC to exit
             break
