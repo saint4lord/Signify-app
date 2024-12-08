@@ -4,7 +4,6 @@ from PyQt6.QtGui import QFont, QPalette, QLinearGradient, QColor, QBrush, QPixma
 from PyQt6.QtCore import Qt
 from welcome_screen import WelcomeScreen
 
-
 class LoginScreen(QWidget):
     def __init__(self):
         super().__init__()
@@ -14,7 +13,7 @@ class LoginScreen(QWidget):
         self.init_ui()
 
     def init_ui(self):
-        # Настройка фона
+        # background
         palette = QPalette()
         gradient = QLinearGradient(0, 0, 0, self.height())
         gradient.setColorAt(0.0, QColor("#0f172a"))
@@ -22,38 +21,35 @@ class LoginScreen(QWidget):
         palette.setBrush(QPalette.ColorRole.Window, QBrush(gradient))
         self.setPalette(palette)
 
-        # Логотип (PNG вместо текста)
+        # logo
         self.logo_label = QLabel(self)
         pixmap = QPixmap("src/assets/logo.png")
         self.logo_label.setPixmap(pixmap)
         self.logo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        # Поле для логина
+        # login field
         self.login_field = QLineEdit(self)
         self.login_field.setPlaceholderText("Email")
         self.login_field.setStyleSheet(self.field_style())
         apply_shadow(self.login_field)
 
-        # Поле для пароля
+        # password field
         self.password_field = QLineEdit(self)
         self.password_field.setPlaceholderText("Password")
         self.password_field.setEchoMode(QLineEdit.EchoMode.Password)
         self.password_field.setStyleSheet(self.field_style())
         apply_shadow(self.password_field)
 
-        # Кнопка "Sign In"
         self.sign_in_button = QPushButton("Sign In", self)
         self.sign_in_button.setStyleSheet(self.button_style())
         apply_shadow(self.sign_in_button)
         self.sign_in_button.clicked.connect(self.on_sign_in_clicked)
 
-        # Надпись "Forgot Password"
         self.forgot_label = QLabel("Forgot Password?", self)
         self.forgot_label.setFont(QFont("Arial", 10))
         self.forgot_label.setStyleSheet("color: #94a3b8;")
         self.forgot_label.setAlignment(Qt.AlignmentFlag.AlignLeft)
 
-        # Надпись "Register"
         self.register_label = QLabel("Register", self)
         self.register_label.setFont(QFont("Arial", 10, QFont.Weight.Bold))
         self.register_label.setStyleSheet("color: #38bdf8; text-decoration: underline;")
@@ -65,20 +61,21 @@ class LoginScreen(QWidget):
         email = self.login_field.text()
         password = self.password_field.text()
 
-        # Проверка заполнения полей
+        # check fields
         if not email or not password:
             QMessageBox.warning(self, "Error", "Please fill in all fields!")
             return
 
-        # Проверка логина через validate_login
-        if validate_login(email, password):
+        # check login
+    '''    if validate_login(email, password):
             QMessageBox.information(self, "Success", "Login successful!")
             self.hide()
-            self.welcome_screen = WelcomeScreen(email)  # Передача логина в экран приветствия
+            self.welcome_screen = WelcomeScreen(email) 
             self.welcome_screen.show()
         else:
             QMessageBox.warning(self, "Error", "Invalid email or password!")
-
+                                '''
+            
     def field_style(self):
         return """
             QLineEdit {
@@ -119,7 +116,6 @@ class LoginScreen(QWidget):
         self.reposition_elements()
 
     def reposition_elements(self):
-        # Центрируем элементы
         window_width = self.width()
         window_height = self.height()
 
