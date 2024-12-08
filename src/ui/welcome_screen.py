@@ -13,8 +13,7 @@ class WelcomeScreen(QWidget):
         # Create QStackedWidget
         self.stacked_widget = QStackedWidget(self)
         self.init_ui()
-
-        # 
+        
         QTimer.singleShot(2000, self.show_mode_selection_screen)  # go forward delay
 
     def init_ui(self):

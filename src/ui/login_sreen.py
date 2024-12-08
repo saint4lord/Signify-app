@@ -1,14 +1,15 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QGraphicsDropShadowEffect
-from PyQt6.QtGui import QFont, QPalette, QLinearGradient, QColor, QBrush
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QGraphicsDropShadowEffect, QMessageBox
+from PyQt6.QtGui import QFont, QPalette, QLinearGradient, QColor, QBrush, QPixmap
 from PyQt6.QtCore import Qt
-from welcome_screen import WelcomeScreen  # Импортируем экран приветствия
+from welcome_screen import WelcomeScreen
+
 
 class LoginScreen(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Signify - Login")
-        self.setMinimumSize(400, 600)  # Устанавливаем минимальный размер окна
+        self.setMinimumSize(400, 600)
         self.resize(400, 600)
         self.init_ui()
 
@@ -21,10 +22,10 @@ class LoginScreen(QWidget):
         palette.setBrush(QPalette.ColorRole.Window, QBrush(gradient))
         self.setPalette(palette)
 
-        # Логотип
-        self.logo_label = QLabel("SIGNIFY", self)
-        self.logo_label.setFont(QFont("Arial", 26, QFont.Weight.Bold))
-        self.logo_label.setStyleSheet("color: #cbd5e1;")
+        # Логотип (PNG вместо текста)
+        self.logo_label = QLabel(self)
+        pixmap = QPixmap("src/assets/logo.png")
+        self.logo_label.setPixmap(pixmap)
         self.logo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         # Поле для логина
@@ -44,7 +45,7 @@ class LoginScreen(QWidget):
         self.sign_in_button = QPushButton("Sign In", self)
         self.sign_in_button.setStyleSheet(self.button_style())
         apply_shadow(self.sign_in_button)
-        self.sign_in_button.clicked.connect(self.on_sign_in_clicked)  # Подключаем обработчик события
+        self.sign_in_button.clicked.connect(self.on_sign_in_clicked)
 
         # Надпись "Forgot Password"
         self.forgot_label = QLabel("Forgot Password?", self)
@@ -61,10 +62,22 @@ class LoginScreen(QWidget):
         self.reposition_elements()
 
     def on_sign_in_clicked(self):
-        username = self.login_field.text()
-        self.hide()  # Скрываем экран логина
-        self.welcome_screen = WelcomeScreen(username)  # Создаем экран приветствия
-        self.welcome_screen.show()  # Показываем экран приветствия
+        email = self.login_field.text()
+        password = self.password_field.text()
+
+        # Проверка заполнения полей
+        if not email or not password:
+            QMessageBox.warning(self, "Error", "Please fill in all fields!")
+            return
+
+        # Проверка логина через validate_login
+        if validate_login(email, password):
+            QMessageBox.information(self, "Success", "Login successful!")
+            self.hide()
+            self.welcome_screen = WelcomeScreen(email)  # Передача логина в экран приветствия
+            self.welcome_screen.show()
+        else:
+            QMessageBox.warning(self, "Error", "Invalid email or password!")
 
     def field_style(self):
         return """
@@ -75,10 +88,10 @@ class LoginScreen(QWidget):
                 color: #cbd5e1;
                 padding: 5px 10px;
                 font-size: 14px;
-                outline: none;  /* Убираем выделение */
+                outline: none;
             }
             QLineEdit:focus {
-                border-color: #38bdf8;  /* Можно задать цвет границы при фокусе */
+                border-color: #38bdf8;
             }
         """
 
@@ -91,13 +104,13 @@ class LoginScreen(QWidget):
                 color: #cbd5e1; 
                 font-size: 16px;
                 font-weight: bold;
-                outline: none;  /* Убираем выделение */
+                outline: none;
             }
             QPushButton:hover {
-                background-color: #1d4ed8; 
+                background-color: #1d4ed8;
             }
             QPushButton:pressed {
-                background-color: #1e40af; 
+                background-color: #1e40af;
             }
         """
 
@@ -119,15 +132,15 @@ class LoginScreen(QWidget):
 
 def apply_shadow(widget):
     shadow_effect = QGraphicsDropShadowEffect()
-    shadow_effect.setBlurRadius(30)  # Увеличиваем размытие
-    shadow_effect.setXOffset(0)      # Увеличиваем смещение по оси X
-    shadow_effect.setYOffset(0)      # Увеличиваем смещение по оси Y
-    shadow_effect.setColor(QColor(30, 40, 50, 160))  # Цвет тени: темно-синий (темнее фона)
+    shadow_effect.setBlurRadius(30)
+    shadow_effect.setXOffset(0)
+    shadow_effect.setYOffset(0)
+    shadow_effect.setColor(QColor(30, 40, 50, 160))
     widget.setGraphicsEffect(shadow_effect)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     login_screen = LoginScreen()
     login_screen.show()
     app.exec()
+
