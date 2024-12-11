@@ -133,5 +133,5 @@ if __name__ == "__main__":
         if cv2.waitKey(1) & 0xFF == 27:  # Press ESC to exit
             break
     cap.release()
-    hand_control.release()
+   # hand_control.release()
     cv2.destroyAllWindows()

@@ -1,8 +1,12 @@
 import sys
+import os
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QGraphicsDropShadowEffect, QMessageBox
 from PyQt6.QtGui import QFont, QPalette, QLinearGradient, QColor, QBrush, QPixmap
 from PyQt6.QtCore import Qt
 from welcome_screen import WelcomeScreen
+from database.database import validate_login
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 class LoginScreen(QWidget):
     def __init__(self):
@@ -67,14 +71,14 @@ class LoginScreen(QWidget):
             return
 
         # check login
-    '''    if validate_login(email, password):
+        if validate_login(email, password):
             QMessageBox.information(self, "Success", "Login successful!")
             self.hide()
             self.welcome_screen = WelcomeScreen(email) 
             self.welcome_screen.show()
         else:
             QMessageBox.warning(self, "Error", "Invalid email or password!")
-                                '''
+                                
             
     def field_style(self):
         return """

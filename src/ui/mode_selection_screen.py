@@ -1,4 +1,6 @@
 import os
+import subprocess
+import sys
 from PyQt6.QtGui import QFont, QLinearGradient, QColor, QPalette, QBrush, QPixmap, QIcon
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QHBoxLayout, QPushButton, QFrame, QSizePolicy
@@ -25,9 +27,9 @@ class ModeSelectionScreen(QWidget):
         self.setPalette(palette)
 
         # Create cards
-        base_path = r"X:\WindowsFolders\Music\Projects\Signify-app\src"
-        hand_icon_path = os.path.join(base_path, "assets/icons/hand_mode_3d64.png")
-        face_icon_path = os.path.join(base_path, "assets/icons/face_mode_3d64.png")
+        base_path_icon = r"X:\WindowsFolders\Music\Projects\Signify-app\src"
+        hand_icon_path = os.path.join(base_path_icon, "assets/icons/hand_mode_3d64.png")
+        face_icon_path = os.path.join(base_path_icon, "assets/icons/face_mode_3d64.png")
 
         self.hand_card = self.create_card(
             hand_icon_path,
@@ -61,7 +63,7 @@ class ModeSelectionScreen(QWidget):
         self.setLayout(self.main_layout)
 
     def create_card(self, icon_path, title, description, on_click):
-    # Create a card container
+        # Create a card container
         card = QFrame(self)
         card.setStyleSheet("""
             QFrame {
@@ -116,9 +118,6 @@ class ModeSelectionScreen(QWidget):
 
         return card
 
-
-
-
     def button_style(self):
         return """
             QPushButton {
@@ -141,11 +140,27 @@ class ModeSelectionScreen(QWidget):
 
     def on_hand_mode_clicked(self):
         print("Hand Mode Selected")
-        # here link to hand_control.py
+        self.run_script("hand_control.py")
 
     def on_face_mode_clicked(self):
         print("Face Mode Selected")
-        # here link to face_control.py
+        self.run_script("face_control.py")
+
+    def run_script(self, script_name):
+        base_path = r"X:\WindowsFolders\Music\Projects\Signify-app\src\modules"
+        script_full_path = os.path.join(base_path, script_name)
+
+        if os.path.exists(script_full_path):
+            try:
+                subprocess.Popen([sys.executable, script_full_path])
+                print(f"Running script: {script_full_path}")
+            except Exception as e:
+                print(f"Failed to run script {script_full_path}: {e}")
+        else:
+            print(f"Script not found: {script_full_path}")
+
+
+
 
     def apply_style(self):
         self.setStyleSheet("""
