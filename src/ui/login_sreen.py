@@ -27,8 +27,9 @@ class LoginScreen(QWidget):
 
         # logo
         self.logo_label = QLabel(self)
-        pixmap = QPixmap("src/assets/logo.png")
-        self.logo_label.setPixmap(pixmap)
+        pixmap = QPixmap("src/assets/icons/logo_rewhite_png.png")
+        scaled_pixmap = pixmap.scaled(400, 400, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        self.logo_label.setPixmap(scaled_pixmap)
         self.logo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         # login field

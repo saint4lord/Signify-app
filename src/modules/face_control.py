@@ -121,9 +121,9 @@ if __name__ == "__main__":
         if not ret:
             break
         frame = eye_control.process_frame(frame)
-        cv2.imshow("Eye Control", frame)
+        #cv2.imshow("Eye Control", frame)
         if cv2.waitKey(1) & 0xFF == 27:  # Press ESC to exit (just for test cases)
             break
     cap.release()
-    eye_control.release()
+    #eye_control.release()
     cv2.destroyAllWindows()

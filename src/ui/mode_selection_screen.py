@@ -29,7 +29,7 @@ class ModeSelectionScreen(QWidget):
         # Create cards
         base_path_icon = r"X:\WindowsFolders\Music\Projects\Signify-app\src"
         hand_icon_path = os.path.join(base_path_icon, "assets/icons/hand_mode_3d64.png")
-        face_icon_path = os.path.join(base_path_icon, "assets/icons/face_mode_3d64.png")
+        face_icon_path = os.path.join(base_path_icon, "assets/icons/face_mode_3d64.png")      
 
         self.hand_card = self.create_card(
             hand_icon_path,
