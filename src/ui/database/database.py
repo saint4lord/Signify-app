@@ -47,5 +47,4 @@ def validate_login(email, password):
 
 # Initialize the database on first run
 initialize_db()
-add_user("test", "1234")
-add_user("1", "1")
+add_user("mainadmin", "root")
